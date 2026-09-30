@@ -1,0 +1,13 @@
+# C
+*.o
+*.out
+*.exe
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Misc
+/bin/
