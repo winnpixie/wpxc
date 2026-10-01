@@ -11,6 +11,9 @@ struct LINKEDLIST *ll_create()
 		return NULL;
 	}
 
+	list->first_node = NULL;
+	list->last_node = NULL;
+
 	return list;
 }
 
@@ -66,6 +69,7 @@ struct LLNODE *ll_addlast(void *item, struct LINKEDLIST *list)
 	}
 
 	node->item = item;
+	node->next_node = NULL;
 
 	struct LLNODE *last_node = list->last_node;
 	if (last_node != NULL)
