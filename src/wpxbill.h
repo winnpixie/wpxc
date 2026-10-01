@@ -14,6 +14,9 @@ struct BILINKEDLIST
 	struct BILLNODE *last_node;
 };
 
+struct BILINKEDLIST *bill_create();
+int bill_free(struct BILINKEDLIST *list);
+
 struct BILLNODE *bill_addfirst(void *item, struct BILINKEDLIST *list);
 struct BILLNODE *bill_addlast(void *item, struct BILINKEDLIST *list);
 

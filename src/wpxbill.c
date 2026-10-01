@@ -1,5 +1,40 @@
 #include "wpxbill.h"
 #include <stdlib.h>
+#include <stdio.h>
+
+// TODO: Implement better malloc handling
+
+struct BILINKEDLIST *bill_create()
+{
+	struct BILINKEDLIST *list = malloc(sizeof(struct BILINKEDLIST));
+	if (list == NULL)
+	{
+		return NULL;
+	}
+
+	return list;
+}
+
+int bill_free(struct BILINKEDLIST *bill)
+{
+	if (bill == NULL)
+	{
+		return -1;
+	}
+
+	struct BILLNODE *node = bill->first_node;
+	struct BILLNODE *curr;
+	while (node != NULL)
+	{
+		curr = node;
+		node = node->next_node;
+
+		free(curr);
+	}
+
+	free(bill);
+	return 0;
+}
 
 struct BILLNODE *bill_addfirst(void *item, struct BILINKEDLIST *list)
 {

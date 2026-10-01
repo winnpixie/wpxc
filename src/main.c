@@ -5,10 +5,11 @@
 
 int main(int argc, char *argv[])
 {
-	struct LINKEDLIST *ll = malloc(sizeof(struct LINKEDLIST));
+	struct LINKEDLIST *ll = ll_create();
 	if (ll == NULL)
 	{
-		perror("ll");
+		perror("ll_create");
+		return -1;
 	}
 
 	ll_addfirst("Hi!", ll);
@@ -24,10 +25,13 @@ int main(int argc, char *argv[])
 		ll_elem = ll_elem->next_node;
 	}
 
-	struct BILINKEDLIST *bill = malloc(sizeof(struct BILINKEDLIST));
+	ll_free(ll);
+
+	struct BILINKEDLIST *bill = bill_create();
 	if (bill == NULL)
 	{
-		perror("bill");
+		perror("bill_create");
+		return -1;
 	}
 
 	bill_addfirst("Hello", bill);
@@ -51,6 +55,8 @@ int main(int argc, char *argv[])
 		printf("BiLL(r): %s\n", bill_elem->item);
 		bill_elem = bill_elem->prev_node;
 	}
+
+	bill_free(bill);
 
 	return 0;
 }

@@ -13,6 +13,9 @@ struct LINKEDLIST
 	struct LLNODE *last_node; // ref to last node allows for a bit of convenience
 };
 
+struct LINKEDLIST *ll_create();
+int ll_free(struct LINKEDLIST *list);
+
 struct LLNODE *ll_addfirst(void *item, struct LINKEDLIST *list);
 struct LLNODE *ll_addlast(void *item, struct LINKEDLIST *list);
 
